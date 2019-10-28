@@ -4,8 +4,7 @@ stage('Check out SCM')
 checkout scm
 }
   stage('install ruuvi sensor python package'){
-    git 'https://github.com/ttu/ruuvitag-sensor'
-    sh 'pip install --user'
+    sh 'pip install -r requirements.txt'
   }
 stage('build python file')
 {
