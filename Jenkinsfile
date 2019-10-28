@@ -4,7 +4,7 @@ stage('Check out SCM')
 checkout scm
 }
   stage('install bluez'){
-    sh label: '', script: 'ssh pi \' sudo apt-get install bluez bluez-hcidump \''
+    sh label: '', script: 'ssh pi \' sudo apt-get install bluez bluez-hcidump -y \''
    // sudo apt-get install bluez bluez-hcidump
   }
   stage('install ruuvi sensor python package'){
