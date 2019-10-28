@@ -9,6 +9,6 @@ checkout scm
   }
 stage('build python file')
 {
-sh label: '', script: 'ssh pi \' python3 ruuvi.py \''
+sh label: '', script: 'ssh pi \' python3 uMec/umec-performance/ruuvi.py \''
 }
 }
