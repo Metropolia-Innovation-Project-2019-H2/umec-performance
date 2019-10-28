@@ -5,7 +5,7 @@ checkout scm
 }
   stage('install ruuvi sensor python package'){
    // sh label: '', script: 'ssh pi \' PATH=${PATH}:/usr/local/bin \''
-    sh label: '', script: 'ssh pi \' pip3 install -r requirements.txt \''
+    sh label: '', script: 'ssh pi \' pip3 install ruuvitag_sensor \''
   }
 stage('build python file')
 {
