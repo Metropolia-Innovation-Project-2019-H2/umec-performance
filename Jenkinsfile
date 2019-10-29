@@ -15,4 +15,8 @@ stage('build python file')
 {
 sh label: '', script: 'ssh pi \' python3 uMec/umec-performance/ruuvi.py \''
 }
+  /* stage('JUnit publish')
+  {
+    junit 'reports/*.xml'
+  } */
 }
