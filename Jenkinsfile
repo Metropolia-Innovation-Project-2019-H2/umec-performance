@@ -24,8 +24,5 @@ stage('build python file')
 {
 sh label: '', script: 'python3 home/citeam/umec-performance/ruuvi.py'
 }
-  /* stage('JUnit publish')
-  {
-    junit 'reports/*.xml'
-  } */ */
+  */
 }
