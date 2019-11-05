@@ -5,7 +5,7 @@ checkout scm
 }
   stage('install bluez'){
     //sh label: '', script: 'r1 \' sudo apt-get install bluez bluez-hcidump -y \''
-    sh label: '', script: 'r1 sudo apt-get install bluez bluez-hcidump \'
+    sh label: '', script: 'r1 sudo apt-get install bluez bluez-hcidump'
    // sudo apt-get install bluez bluez-hcidump
   }
   stage('install ruuvi sensor python package'){
