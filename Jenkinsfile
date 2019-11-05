@@ -3,7 +3,11 @@ stage('Check out SCM')
 {
 checkout scm
 }
-  stage('log in to RPi')
+  stage('clone')
+  {
+    sh label: '', script: 'git clone https://github.com/anhnnt/NodeApp'
+  }
+ /* stage('log in to RPi')
   {
     sh label: '', script: 'r1'
   }
@@ -23,5 +27,5 @@ sh label: '', script: 'python3 home/citeam/umec-performance/ruuvi.py'
   /* stage('JUnit publish')
   {
     junit 'reports/*.xml'
-  } */
+  } */ */
 }
