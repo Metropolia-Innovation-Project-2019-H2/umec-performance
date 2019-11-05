@@ -13,7 +13,7 @@ checkout scm
   }
 stage('build python file')
 {
-sh label: '', script: 'r1 \' python3 home\citeam\umec-performance/ruuvi.py \''
+sh label: '', script: 'r1 \' python3 home/citeam/umec-performance/ruuvi.py \''
 }
   /* stage('JUnit publish')
   {
