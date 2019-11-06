@@ -3,14 +3,7 @@ stage('Check out SCM')
 {
 checkout scm
 }
-  stage('clone')
-  {
-    sh label: '', script: 'git clone https://github.com/anhnnt/NodeApp'
-  }
- /* stage('log in to RPi')
-  {
-    sh label: '', script: 'r1'
-  }
+
   stage('install bluez'){
     //sh label: '', script: 'r1 \' sudo apt-get install bluez bluez-hcidump -y \''
     sh label: '', script: 'sudo apt-get install bluez bluez-hcidump'
@@ -24,5 +17,5 @@ stage('build python file')
 {
 sh label: '', script: 'python3 home/citeam/umec-performance/ruuvi.py'
 }
-  */
+ 
 }
