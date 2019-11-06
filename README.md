@@ -1,5 +1,5 @@
 # umec-performance
-performance with grafana, influx and telegraf
+performance monitoring with grafana, influx and telegraf
 
 Important:
 
