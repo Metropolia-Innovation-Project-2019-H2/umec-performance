@@ -6,7 +6,7 @@ checkout scm
 
   stage('install bluez'){
     //sh label: '', script: 'r1 \' sudo apt-get install bluez bluez-hcidump -y \''
-     sh label: '', script: 'ssh -o StrictHostKeyChecking=no performance@194.110.231.141  '''
+     sh label: '', script: 'ssh -o StrictHostKeyChecking=no performance@194.110.231.141 ssh  -tt perfteam@194.110.231.139'''
     //sh label: '', script: 'ssh citeam@194.110.231.139'
     //sh label: '', script: 'ssh citeam@194.110.231.139 \' sudo apt-get install bluez bluez-hcidump -y \''
     //sudo apt-get install bluez bluez-hcidump -y
