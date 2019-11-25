@@ -6,8 +6,8 @@ class TestRuuvi(unittest.TestCase):
  """
        This test part depends on what you want to test its functions.
        Above are incompleted codes
- """
-    """ def setUp(self):
+
+    def setUp(self):
         ruuvi.ruuvi.testing = True
         self.ruuvi = ruuvi.ruuvi.test_client()
     def test_Temp(self):
