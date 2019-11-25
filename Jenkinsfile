@@ -1,4 +1,4 @@
-node{
+/* node{
 stage('Check out SCM')
 {
 checkout scm
@@ -19,4 +19,20 @@ stage('build python file')
 {sh label: '', script: 'ssh citeam@194.110.231.139 \'python3 home/citeam/umec-performance/ruuvi.py \''
 }
  
+} */
+
+pipeline {
+  agent { docker { image 'python:3.7.2' } }
+  stages {
+    stage('build') {
+      steps {
+        sh 'pip install -r requirements.txt'
+      }
+    }
+    stage('test') {
+      steps {
+        sh 'python ruuvi.py'
+      }   
+    }
+  }
 }
