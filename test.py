@@ -2,27 +2,17 @@
 import unittest
 import ruuvi
 
-class TestHello(unittest.TestCase):
-
-    def setUp(self):
+class TestRuuvi(unittest.TestCase):
+ """
+       This test part depends on what you want to test its functions.
+       Above are incompleted codes
+ """
+    """ def setUp(self):
         ruuvi.ruuvi.testing = True
         self.ruuvi = ruuvi.ruuvi.test_client()
-
-    def test_hello(self):
-        rv = self.ruuvi.get('/')
-        self.assertEqual(rv.status, '200 OK')
-        self.assertEqual(rv.data, b'Hello World!\n')
-
-    def test_hello_hello(self):
-        rv = self.ruuvi.get('/hello/')
-        self.assertEqual(rv.status, '200 OK')
-        self.assertEqual(rv.data, b'Hello World!\n')
-
-    def test_hello_name(self):
-        name = 'Simon'
-        rv = self.app.get(f'/hello/{name}')
-        self.assertEqual(rv.status, '200 OK')
-        self.assertIn(bytearray(f"{name}", 'utf-8'), rv.data)
+    def test_Temp(self):
+        test = 
+        self.assertEqual(test,) """
 
 if __name__ == '__main__':
     unittest.main()
