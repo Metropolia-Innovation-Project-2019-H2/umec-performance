@@ -31,7 +31,7 @@ pipeline {
     }
     stage('test') {
       steps {
-        sh 'python ruuvi.py'
+        sh 'python test.py'
       }   
     }
   }
