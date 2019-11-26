@@ -22,7 +22,10 @@ stage('build python file')
 } */
 
 pipeline {
-  agent { docker { image 'python:3.7.2' } }
+  agent { 
+   // docker { image 'python:3.7.2' } 
+    dockerfile true
+  }
   stages {
     stage('build') {
       steps {
