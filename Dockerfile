@@ -1,6 +1,6 @@
 FROM python:latest
 
-ADD ruuvi.ry /
+ADD ruuvi.py /
 
 RUN apt-get update
 RUN apt-get install -y --no-install-recommends \
@@ -9,6 +9,6 @@ RUN apt-get install -y --no-install-recommends \
   
 RUN pip install ruuvitag_sensor
 
-CMD [ "python3", "./ruuvi.ry"]
+CMD [ "python3", "./ruuvi.py"]
 
 EXPOSE 8000
