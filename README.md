@@ -15,18 +15,41 @@ The project is a complete containerized setup using docker. All the tools used a
 
 The performance team was task to use InfluxDB and Grafana for this project.
 InfluxDB
-link:
+link: https://www.influxdata.com
 
 Grafana
+link: https://grafana.com 
+
+Telegraf
 link:
 
 
 2. TIG Stack
 
 Through research, the team found out about the Telegraf, InfluxDB and Grafana (TIG) stack. 
-performance monitoring with grafana, influx and telegraf
+Telegraf is used to collect system metrics. Telegraf metrics are then sent to influxdb. The grafana server is configured to display these values.
+ 
 
-Important:
+3. Implementation
+
+- On raspberrypi r1, username is perfteam.
+- On raspberrpi r2,s1,s2 and s3  username is performance
+
+Setting up docker environment on r1 and r2
+
+- ssh to pi
+
+- using curl: curl -sSL https://get.docker.com | sh 
+
+- it is important to add the docker group and add user to the group to avoid typing sudo each time. This will prove helpful because there will be a lot of docker commands that require sudo.
+
+- to do this; sudo groupadd docker
+
+- sudo usermod -aG docker $user in this case user is perfteam on r1 or performance on r2.
+
+- refer to this page to learn more about post docker installation https://docs.docker.com/install/linux/linux-postinstall/
+
+ 
 
 This project makes use of the ruuvisensor library from pypi, so it has to be installed first.
 
