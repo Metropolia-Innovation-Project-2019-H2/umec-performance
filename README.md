@@ -134,6 +134,8 @@ Grafana
 
 Grafana server was used for the purposes of visualisation of data from the influxdb database. 
 
+For detailed instructions on working with grafana https://grafana.com/docs/installation/docker/
+
 
 
 
