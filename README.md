@@ -50,6 +50,68 @@ Setting up docker environment on r1 and r2
 - refer to this page to learn more about post docker installation https://docs.docker.com/install/linux/linux-postinstall/
 
  
+Setting up docker environment on s1,s2 and s3
+
+Details on docker installation here https://docs.docker.com/install/linux/docker-ee/suse/#install-from-a-package
+
+- ssh to server
+
+- sudo zypper refresh //updates the zypper package index
+
+- zypper install docker //installs docker
+
+- sudo groupadd docker //add docker group
+
+- sudo usermod -aG docker $User //add user to docker group
+
+
+uMec SERVER 1 (S1)
+
+Server 1 at ip ***.***.***.**0 is the main server used in this project. 
+Issuing docker ps command shows the containers running on this server. The server hosts five (5) containers. These are influxdb, grafana, telegraf, prometheus, prometheus node exporter.
+
+InfluxDB:
+
+For more detailed instructions on working with docker influxdb refer to; https://hub.docker.com/_/influxdb/
+
+- To begin pull the docker image
+
+docker pull influxdb
+
+- Create a default influxdb config file (This command will create a config file in the current working directory, not a container.
+
+docker run --rm influxdb influxd config > influxdb.conf
+
+- To verify the location of the config file, use
+
+sudo readlink -f influxdb.conf 
+
+-The location of the influxdb.conf printed above will be used to create the influxdb container. This allows for future editing of the influxdb. The configuration file can be edited,
+and then the container restarted. Doing so allows the container to pick up the changes implemented in the configuration file. It is recommended to implement all the containers in this manner. All subsequent containers were implemented this way. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 This project makes use of the ruuvisensor library from pypi, so it has to be installed first.
 
