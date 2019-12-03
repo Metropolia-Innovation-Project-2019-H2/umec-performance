@@ -117,10 +117,6 @@ SHOW DATABASES //displays the databases present on the influxdb server. The outp
 
 Connected to http://localhost:8086 version 1.7.8
 InfluxDB shell version: 1.7.8
-> Select * database
-ERR: error parsing query: found DATABASE, expected FROM at line 1, char 10
-Warning: It is possible this error is due to not setting a database.
-Please set a database with the command "use <database>".
 > SHOW DATABASES
 name: databases
 name
