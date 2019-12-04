@@ -26,7 +26,7 @@ def main(found_data):
 	]
 
    
-    client = InfluxDBClient('localhost', 8086, 'root', 'root', 'ofienipa')
+    client = InfluxDBClient('localhost', 8086, 'root', 'root', 'rpi_telegraf')
     client.write_points(datapoints)
 
 RuuviTagSensor.get_datas(main)
