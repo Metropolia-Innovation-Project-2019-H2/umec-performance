@@ -71,7 +71,8 @@ Server 1 at ip ***.***.***.**0 is the main server used in this project.
 
 Issuing docker ps command shows the containers running on this server. The server hosts five (5) containers. These are influxdb, grafana, telegraf, prometheus, prometheus node exporter.
 
-InfluxDB:
+
+INFLUXDB:
 
 For more detailed instructions on working with docker influxdb refer to; https://hub.docker.com/_/influxdb/
 
@@ -130,44 +131,57 @@ s3telegraf	//Server 3 database
 rpi2_telegraf	//Raspberry pi 2 database
 
 
-Grafana
+GRAFANA
 
 Grafana server was used for the purposes of visualisation of data from the influxdb database. 
 
 For detailed instructions on working with grafana https://grafana.com/docs/installation/docker/
 
+The default grafana image:latest was used for this project. No serious modifications have been made as at the time of this document. There is username and password security in place. 
+
+Should you need the login details, please contact albert.offei@metropolia.fi. 
+
+- To install grafana:
+
+docker run -d -p 3000:3000--name=grafana -v grafana-storage:/var/lib/grafana grafana/grafana
+
+- After installation, ssh tunnel using command:
+
+ssh -L 3000:localhost:3000 user@ip
+
+- Login using username and password.
+
+- Set up data source by selecting influxdb as database. Edit source to point to docker network address of influxdb (172.17.0.*). Give the name of the database e.g. rpi_telegraf and test.
+
+- After successful connection. Grafana is ready to graphically display the metrics recorded in the database.
+
+- Grafana comes with add ons including ready made dashboards that can be imported instead of building dashboards from scratch. 
 
 
 
+TELEGRAF
 
 
+Telegraf is the agent for collecting metrics from linux systems. These metrics are then outputed to influxdb. The telegraf.conf file is used to configure the behaviour of telegraf.
+
+- Telegraf has several inputs that can be used to grab specific metrics. In this project, the inputs used on all servers were [[inputs.temp]] to monitor the temperature of the cpu cores
+and [[inputs.net]] to monitor network stats.
+
+- Telegraf can output metrics to a lot of different servers and services. In this project, telegraf outputs metrics via http to influxdb on Server1. 
+
+- On Server1, telegraf.conf is configured to target influxdb directly at 172.17.0.4:8086. All other servers report metrics to the same influxdb but target it at http://Server1ip:50000
 
 
+The project is still ongoing and changes are being made constantly. This readme will be updated to reflect the status of the project including any add ons and additionaly services deployed.
 
+Example config files will be added to the github organisation. 
 
+For more details do not hesitate to contact: albert.offei@metropolia.fi and marko.uusitalo@metropolia.fi
 
+Current additions:
 
+Prometheus monitoring: Implemented. Working. Details will be available shortly. 
 
+Prometheus alertmanager: Installed. Under configurations and soon will be sending email alerts. Initial targets will be alerts on unsual network activity and alerts if a server were to go down.
 
-
-
-
-
-
-
-
-
-
-This project makes use of the ruuvisensor library from pypi, so it has to be installed first.
-
-The link to ruuvitag python = https://pypi.org/project/ruuvitag_sensor/
-
-Take note using ruuvitag python library requires Bluez, as is clearly stated in the documentation.
-
-this is achieved by: sudo apt-get install bluez bluez-hcidump.
-
-All of these have been taken care of with the jenkinsfile for CI/CD purposes. 
-
-What will be added includes telegraf, influxdb and grafana. The task will be to get telegraf running with customised config, influxdb being the target of telegraf and grafana plotting the contents of databases on influxdb.
-
-
+Promeeteus node-explorer: Implemented, currently being visualized by grafana. Still being configured.
