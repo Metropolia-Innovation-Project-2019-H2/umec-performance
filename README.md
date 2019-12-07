@@ -122,13 +122,13 @@ InfluxDB shell version: 1.7.8
 name: databases
 name
 ----
-_internal
-telegraf	 
-rpi_telegraf	//Raspberry pi 1 database	  	
-s1telegraf	//Server 1 database
-s2telegraf	//Server 2 database
-s3telegraf	//Server 3 database
-rpi2_telegraf	//Raspberry pi 2 database
+- _internal
+- telegraf	 
+- rpi_telegraf	//Raspberry pi 1 database	  	
+- s1telegraf	//Server 1 database
+- s2telegraf	//Server 2 database
+- s3telegraf	//Server 3 database
+- rpi2_telegraf	//Raspberry pi 2 database
 
 
 GRAFANA
