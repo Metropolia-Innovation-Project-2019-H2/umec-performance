@@ -118,10 +118,12 @@ SHOW DATABASES //displays the databases present on the influxdb server. The outp
 
 Connected to http://localhost:8086 version 1.7.8
 InfluxDB shell version: 1.7.8
-> SHOW DATABASES
-name: databases
-name
-----
+
+- > SHOW DATABASES
+
+- name: databases
+- name
+
 - _internal
 - telegraf	 
 - rpi_telegraf	//Raspberry pi 1 database	  	
